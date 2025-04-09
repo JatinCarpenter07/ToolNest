@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Page</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+    <h2>This is a your Personal Drive Application</h2>
+    <nav>
+        <% if(!locals.user){ %>
+            <button><a href="/signup">Sign-Up</a></button>
+            <button><a href="/login">Log-In</a></button>
+            <% } %>
+
+                <% if(locals.user){ %>
+                    <button><a href="/logout">Log-Out</a></button>
+                    <button><a href="/">Sync</a></button>
+                    <% } %>
+                        <button><a href="/admin">Admin Access</a></button>
+    </nav>
+
+    <div class="hello">
+        Hello<% if(locals.user){ %>, <%= user.Name %>
+                <% } %>!!!
+    </div>
+
+    <div>
+        <form action="/file" method="post" enctype="multipart/form-data">
+            <label for="">Select the Files</label>
+            <input type="file" name="files" multiple required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    <div>
+        <% if(!locals.allFiles || !locals.allFiles?.length) {%>
+            <p>No Files are there</p>
+            <% } %>
+        <% if(locals.allFiles && locals.allFiles?.length){ %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>File Name</th>
+                        <th>Upload Date</th>
+                        <th>Download</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% allFiles.forEach((file,index)=> { %>
+                        <tr>
+                            <td>
+                                <%= index+1 %>
+                            </td>
+                            <td><%= file.Name %></td>
+                            <td><%= file.createdAt %></td>
+                            <td><a href="<%=`/file/${file.fileId}`%>" target="_blank"><button class="download"><img src="/images/download.png" alt="" width="20px"></button></a></td>
+                            <td><a href="<%=`/file/delete/${file.fileId}`%>" target="_blank"><button class="download"><img src="/images/delete.png" alt="" width="15px"></button></a></td>
+                        </tr>
+                        <% }); %>
+
+                </tbody>
+            </table>
+            <% } %>
+    </div>
+</body>
+
+</html>

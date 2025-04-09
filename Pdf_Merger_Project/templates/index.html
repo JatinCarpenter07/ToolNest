@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Page</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="/">
+                <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                PdfMerger
+            </a>
+        </nav>
+    </header>
+
+
+    <main>
+        <h2>Upload PDFs for Merging</h2>
+        <form action="/merger" method="post" enctype="multipart/form-data" onsubmit="validate(event)">
+            <input type="file" name="pdfs" accept=".pdf" multiple required onchange="formGenerator(event)">
+            <div id="pdfsList">
+                
+            </div>
+            <br>
+            <button type="submit">Merge PDFs</button>
+        </form>
+        <p id="errorMessage" style="color: red;"></p>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 PDF Merger. All Rights Reserved.</p>
+        <p>
+            <a href="/privacy-policy">Privacy Policy</a> |
+            <a href="/terms-of-service">Terms of Service</a> |
+            <a href="/contact">Contact Us</a>
+        </p>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

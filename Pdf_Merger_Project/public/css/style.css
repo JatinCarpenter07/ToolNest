@@ -1,0 +1,175 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Header (Sticky Navbar) */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #343A40;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    margin-right: 0px;
+    width: 70px;
+    height:70px;
+}
+
+/* Main Content */
+main {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    margin: 80px auto 60px; /* Added margin to prevent overlap with header & footer */
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* File Upload */
+input[type="file"] {
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="file"]:hover {
+    border-color: #007bff;
+}
+
+/* PDF List */
+#pdfsList div {
+    margin-top: 10px;
+    padding: 12px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+select, input[type="text"] {
+    margin-left: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+select:hover, input[type="text"]:hover {
+    border-color: #007bff;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background: #28a745;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 200px;
+}
+
+button[type="submit"]:hover {
+    background: #218838;
+}
+
+/* Error Message */
+#errorMessage {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Footer (Sticky) */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    background: #343a40;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer a {
+    color: #17a2b8;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+        padding: 20px;
+    }
+
+    input[type="file"], button[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #pdfsList div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    select, input[type="text"] {
+        width: 100%;
+        margin-top: 5px;
+    }
+}
